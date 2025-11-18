@@ -12,6 +12,7 @@ import (
 	"time"
 
 	"github.com/google/go-containerregistry/pkg/logs"
+	"github.com/sirupsen/logrus"
 )
 
 // NewResumable creates a http.RoundTripper that resumes http GET from error, and continue
@@ -168,9 +169,8 @@ func (rb *resumableBody) resume(backoff Backoff, reason error) error {
 		return reason
 	}
 
-	if reason != nil {
-		logs.Debug.Printf("Resume http transporting from error: %v", reason)
-	}
+	logs.Debug.Printf("Resume http transporting from error: %v", reason)
+	logrus.Debugf("Try resuming http transport from error: %v", reason)
 
 	var (
 		resp *http.Response
@@ -205,6 +205,8 @@ func (rb *resumableBody) resume(backoff Backoff, reason error) error {
 			resp.Body.Close()
 			return http.ErrBodyReadAfterClose
 		}
+
+		logrus.Debugf("Resume http transporting from '%v' successfully", reason)
 
 		rb.rc.Close()
 		rb.rc = resp.Body

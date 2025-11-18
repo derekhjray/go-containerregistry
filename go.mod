@@ -13,6 +13,7 @@ require (
 	github.com/moby/docker-image-spec v1.3.1
 	github.com/opencontainers/go-digest v1.0.0
 	github.com/opencontainers/image-spec v1.1.1
+	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/cobra v1.10.1
 	golang.org/x/oauth2 v0.33.0
 	golang.org/x/sync v0.18.0
@@ -39,7 +40,6 @@ require (
 	github.com/morikuni/aec v1.0.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
-	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/spf13/pflag v1.0.9 // indirect
 	github.com/vbatts/tar-split v0.12.2 // indirect
 	go.opentelemetry.io/auto/sdk v1.1.0 // indirect
